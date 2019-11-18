@@ -9,9 +9,10 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginService } from './login.service';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'signUp', component: SignUpComponent },
   { path: '' , component: LoginComponent }
 ];
@@ -32,7 +33,7 @@ const routes: Routes = [
   exports: [
     RouterModule
   ],
-  providers: [LoginService],
+  providers: [LoginService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

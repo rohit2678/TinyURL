@@ -1,1 +1,14 @@
-<p>header works!</p>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a routerLink="home" class="navbar-brand">Tiny URL</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li><a *ngIf="this.loginService.loggedUserName">{{ this.loginService.loggedUserName }}</a></li>
+                <li><a routerLink="/home" *ngIf="this.loginService.loggedUserName">Home</a></li>
+                <li><a href="#" *ngIf="this.loginService.loggedUserName" (click)="onLogout()">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
