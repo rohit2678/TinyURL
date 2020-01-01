@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -11,15 +12,17 @@ export class HomeComponent implements OnInit {
   constructor(private loginService: LoginService) { }
 
   userName: string;
-  dateTime: Date;
+  dateTime: any;
   ngOnInit() {
     this.userName = this.loginService.loggedUserName;
     this.userName = this.userName.substring(0, this.userName.indexOf('@'));
 
-    const today = new Date();
-    const date = today.getMonth.name + ' ' + today.getDate;
-    console.log(date);
-    this.dateTime = date;
+    // let dateFormat = require('dateformat');
+    // let now = new Date();
+    // dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+    this.dateTime = formatDate(new Date(), 'MMM dd, yyyy, hh:mm aa', 'en');
+    console.log(formatDate(new Date(), 'MMM dd, yyyy, hh:mm aa', 'en'));
+    //console.log(Date.now() | date: 'medium');
   }
 
 }
