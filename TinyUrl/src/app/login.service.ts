@@ -14,6 +14,7 @@ export class LoginService {
   }
 
   loggedUserName: string;
+  URLData: Array<{ longURL: string, shortURL: string }> = [];
 
   login(userName: string, password: string) {
     const userInfo = localStorage.getItem('userInfo');
