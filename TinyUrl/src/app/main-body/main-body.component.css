@@ -1,19 +1,12 @@
-.flex-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.flex-container>div.one {
+.flex-container>div.body {
   background-color: rgba(245, 245, 245, 0.315);
-  width: 16%;
+  width: 74%;
   margin: 10px;
+  line-height: 100%;
   text-align: center;
-  font-size: 13px;
+  font-size: 20px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   border-left: 1px solid black;
   border-right: 1px solid black;
 }
-
-

@@ -10,10 +10,12 @@ import { LoginService } from './login.service';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { AuthGuard } from './auth.guard';
+import { MainBodyComponent } from './main-body/main-body.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'signUp', component: SignUpComponent },
+  { path: 'home/convert', component: MainBodyComponent },
   { path: '' , component: LoginComponent }
 ];
 
@@ -23,7 +25,8 @@ const routes: Routes = [
     LoginComponent,
     SignUpComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    MainBodyComponent
   ],
   imports: [
     BrowserModule,

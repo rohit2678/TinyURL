@@ -26,11 +26,11 @@ export class HomeComponent implements OnInit {
 
 
   doConvert() {
-    console.log("Long URL", this.longURL);
-    const dataFound = localStorage.getItem("URLData");
+    console.log('Long URL', this.longURL);
+    const dataFound = localStorage.getItem('URLData');
     if (dataFound) {
       const URLArray = JSON.parse(dataFound);
-      const URL = URLArray.find((URL: { longURL: string, shortURL: string }) => URL.longURL == this.longURL);
+      const URL = URLArray.find((URL: { user: string, longURL: string, shortURL: string }) => URL.longURL == this.longURL);
       if (URL) {
         alert('Short URL Already created...');
         this.longURL = '';
@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
 
   shortURLConverter() {
     this.shortURL = 'https://rohitshortURL/' + this.makeid(9);
-    this.loginService.URLData.push({ longURL: this.longURL, shortURL: this.shortURL});
+    this.loginService.URLData.push({ user: this.loginService.loggedUserName, longURL: this.longURL, shortURL: this.shortURL});
     console.log('URL Data' + this.loginService.URLData.values);
   }
 
