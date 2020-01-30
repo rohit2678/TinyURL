@@ -11,6 +11,10 @@ export class MainBodyComponent implements OnInit {
   constructor(private loginService: LoginService) { }
 
   ngOnInit() {
+    const dataFound = localStorage.getItem('URLData');
+    if (dataFound) {
+      this.loginService.URLData = JSON.parse(dataFound);
+    }
   }
 
   longURL: string;
@@ -18,6 +22,9 @@ export class MainBodyComponent implements OnInit {
 
   doConvert() {
     console.log('Long URL', this.longURL);
+    if (!this.longURL) {
+      alert('Give Some input');
+    }
     const dataFound = localStorage.getItem('URLData');
     if (dataFound) {
       const URLArray = JSON.parse(dataFound);

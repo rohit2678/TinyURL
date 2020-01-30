@@ -16,10 +16,15 @@ export class MyURLListComponent implements OnInit {
     if (dataFound) {
       const URLArray = JSON.parse(dataFound);
       console.log('UserArray ', URLArray);
-      const URL = URLArray.find((URL: { user: string, longURL: string, shortURL: string }) => URL.user == this.loginService.loggedUserName);
+      //const URL = URLArray.find((URL: { user: string, longURL: string, shortURL: string }) => URL.user == this.loginService.loggedUserName);
+      while (URLArray.length > 0) {
+        const URL = URLArray.find((URL: { user: string, longURL: string, shortURL: string }) =>
+        URL.user == this.loginService.loggedUserName);
 
-      if (URL) {
-        console.log('URL ', URL, ' ,', URL.shortURL);
+        // if (URL) {
+        //   console.log('Long URL: ', URL.longURL);
+        //   console.log('Short URL: ', URL.shortURL);
+        // }
       }
     }
   }
