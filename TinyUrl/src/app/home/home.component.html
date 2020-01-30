@@ -5,9 +5,12 @@
     <label><i style='font-size:24px' class='far'>&#xf017;</i>{{ this.dateTime }}</label>
 
     <hr>
-    <a href="">MAKE-TINY-URL</a>
+    <a routerLink='/home'>MAKE-TINY-URL</a>
     <hr>
-    <a href="">MY-URL-LIST</a>
+    <a routerLink='/home/myUrl'>MY-URL-LIST</a>
   </div>
- <router-outlet></router-outlet>
+  <div class="body">
+    <br>
+    <router-outlet></router-outlet>
+  </div>
 </div>

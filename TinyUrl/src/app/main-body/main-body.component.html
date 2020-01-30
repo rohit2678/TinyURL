@@ -1,13 +1,11 @@
-<div class="body">
-  <br>
-  <div class="col-xs-12">
-    <label>Enter your long URL: </label>
-    <input type="text" [(ngModel)]="longURL">
-  </div>
-  <br>
-  <div class="col-xs-12">
-    <label>Your Short URL: </label>
-    <input type="text" readonly [(ngModel)]="shortURL">
-  </div><br>
-  <button class="btn btn-primary" (click)="doConvert()">Convert</button>
+<div class="col-xs-12">
+  <label>Enter your long URL: </label>
+  <input type="text" [(ngModel)]="longURL">
 </div>
+<br>
+<div class="col-xs-12">
+  <label>Your Short URL: </label>
+  <input type="text" readonly [(ngModel)]="shortURL">
+</div><br>
+<button class="btn btn-primary" (click)="doConvert()">Convert</button>
+<button class="btn btn-primary" (click)="doClear()">Clear</button>

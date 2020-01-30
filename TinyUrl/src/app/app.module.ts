@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -11,11 +11,15 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { AuthGuard } from './auth.guard';
 import { MainBodyComponent } from './main-body/main-body.component';
+import { MyURLListComponent } from './my-urllist/my-urllist.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard], children: [
+    { path: '', component: MainBodyComponent },
+    { path: 'myUrl', component: MyURLListComponent }
+  ] },
   { path: 'signUp', component: SignUpComponent },
-  { path: 'home/convert', component: MainBodyComponent },
+  { path: ' convert', component: MainBodyComponent },
   { path: '' , component: LoginComponent }
 ];
 
@@ -26,7 +30,8 @@ const routes: Routes = [
     SignUpComponent,
     HomeComponent,
     HeaderComponent,
-    MainBodyComponent
+    MainBodyComponent,
+    MyURLListComponent
   ],
   imports: [
     BrowserModule,
