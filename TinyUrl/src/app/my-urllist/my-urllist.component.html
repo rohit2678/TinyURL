@@ -1,5 +1,5 @@
 <div class="col-xs-12">
-  <ul>
-    <li></li>
+  <ul *ngFor="let element of myURLListArray">
+    <li *ngIf="element.user === this.loginService.loggedUserName">{{ element.longURL }} - {{ element.shortURL }}</li>
   </ul>
 </div>

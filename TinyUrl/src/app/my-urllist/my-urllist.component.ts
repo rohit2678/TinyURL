@@ -9,23 +9,20 @@ import { LoginService } from '../login.service';
 export class MyURLListComponent implements OnInit {
 
   constructor(private loginService: LoginService) { }
-  myURLListArray: Array<String>;
+  myURLListArray: Array<Object>;
 
   ngOnInit() {
     const dataFound = localStorage.getItem('URLData');
     if (dataFound) {
+      console.log('data JSON ', dataFound);
       const URLArray = JSON.parse(dataFound);
-      console.log('UserArray ', URLArray);
-      //const URL = URLArray.find((URL: { user: string, longURL: string, shortURL: string }) => URL.user == this.loginService.loggedUserName);
-      while (URLArray.length > 0) {
-        const URL = URLArray.find((URL: { user: string, longURL: string, shortURL: string }) =>
-        URL.user == this.loginService.loggedUserName);
-
-        // if (URL) {
-        //   console.log('Long URL: ', URL.longURL);
-        //   console.log('Short URL: ', URL.shortURL);
-        // }
-      }
+      console.log('UserArray ', URLArray.length);
+      this.myURLListArray = URLArray;
+      URLArray.forEach(element => {
+        if (element.user === this.loginService.loggedUserName) {
+          console.log('Long URL ', element.longURL);
+        }
+      });
     }
   }
 
