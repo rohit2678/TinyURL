@@ -26,4 +26,8 @@ export class MyURLListComponent implements OnInit {
     }
   }
 
+  onClicked(shortURL: string) {
+    console.log("Clicked URL ", shortURL);
+  }
+
 }
